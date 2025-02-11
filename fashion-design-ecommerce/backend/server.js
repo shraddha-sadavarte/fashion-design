@@ -31,6 +31,11 @@ const Booking = sequelize.define('Booking', {
 sequelize.sync().then(() => console.log('Database connected and synced'));
 
 // API Routes
+
+app.get('/', (req, res) => {
+    res.send('Server is running!');
+});
+
 app.get('/designs', async (req, res) => {
     const designs = await Design.findAll();
     res.json(designs);
